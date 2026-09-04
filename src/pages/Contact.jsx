@@ -3,7 +3,7 @@ import useReveal from '../hooks/useReveal'
 import { courses } from '../data/courses'
 import './Contact.css'
 
-const initial = { name: '', email: '', course: '', message: '' }
+const initial = { name: '', email: '', course: '', referral: '', message: '' }
 
 export default function Contact() {
   useReveal()
@@ -144,6 +144,18 @@ export default function Contact() {
                       </option>
                     ))}
                   </select>
+                </div>
+
+                <div className="field">
+                  <label htmlFor="referral">Referral code / Referred by</label>
+                  <input
+                    id="referral"
+                    name="referral"
+                    type="text"
+                    value={form.referral}
+                    onChange={handleChange}
+                    placeholder="Referral code or friend's name (optional)"
+                  />
                 </div>
 
                 <div className="field">
