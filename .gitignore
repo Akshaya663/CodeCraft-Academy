@@ -6,3 +6,6 @@ dist-ssr
 .env
 .env.local
 .vite
+
+# Abandoned initial scaffold (superseded by root project)
+training-institute/
