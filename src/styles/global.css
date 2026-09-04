@@ -1,0 +1,291 @@
+/* ============================================================
+   Design tokens — soft, minimal palette
+   ============================================================ */
+:root {
+  /* Soft neutral base */
+  --bg: #fafbfc;
+  --surface: #ffffff;
+  --surface-alt: #f4f6fa;
+
+  /* Muted, gentle accents */
+  --primary: #5b8def;      /* soft blue */
+  --primary-dark: #4573d4;
+  --primary-soft: #e8f0ff;
+  --accent: #f2a154;       /* warm soft orange */
+  --accent-soft: #fdf0e2;
+  --mint: #6fcf97;         /* soft green */
+  --mint-soft: #e7f7ee;
+
+  /* Extended palette for more colour & energy */
+  --violet: #8b6ef0;       /* soft purple */
+  --violet-soft: #efeaff;
+  --pink: #f0729e;         /* soft rose */
+  --pink-soft: #fdeaf1;
+  --teal: #3fc3c8;         /* soft teal */
+  --teal-soft: #e3f8f8;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #5b8def 0%, #8b6ef0 100%);
+  --grad-warm: linear-gradient(135deg, #f2a154 0%, #f0729e 100%);
+  --grad-cool: linear-gradient(135deg, #3fc3c8 0%, #5b8def 100%);
+  --grad-hero: linear-gradient(120deg, #5b8def 0%, #8b6ef0 50%, #f0729e 100%);
+
+  /* Text */
+  --text: #2b3244;
+  --text-muted: #6b7280;
+  --text-soft: #9aa1ad;
+
+  /* Lines & shadows */
+  --border: #e8ebf1;
+  --shadow-sm: 0 1px 3px rgba(43, 50, 68, 0.06);
+  --shadow-md: 0 8px 24px rgba(43, 50, 68, 0.08);
+  --shadow-lg: 0 18px 40px rgba(43, 50, 68, 0.10);
+
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-head: 'Poppins', var(--font-body);
+
+  --container: 1160px;
+
+  /* Component-specific tokens (themed) */
+  --nav-bg: rgba(255, 255, 255, 0.72);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.9);
+  --code-bg: #232a3d;
+  --code-text: #c9d3ea;
+  --chip-bg: #ffffff;
+  --footer-bg: #1f2536;
+  --footer-text: #99a0b0;
+  --footer-heading: #ffffff;
+}
+
+/* ============================================================
+   Dark theme — soft, low-contrast dark palette
+   ============================================================ */
+:root[data-theme='dark'] {
+  --bg: #0f1420;
+  --surface: #171d2b;
+  --surface-alt: #1b2233;
+
+  --primary: #7aa5f5;
+  --primary-dark: #5b8def;
+  --primary-soft: #22304d;
+  --accent: #f4b06a;
+  --accent-soft: #33281c;
+  --mint: #7ad6a2;
+  --mint-soft: #1c3128;
+
+  --violet: #a68df5;
+  --violet-soft: #2a2447;
+  --pink: #f48cae;
+  --pink-soft: #3a2430;
+  --teal: #5fd3d7;
+  --teal-soft: #17322f;
+
+  --grad-primary: linear-gradient(135deg, #5b8def 0%, #8b6ef0 100%);
+  --grad-warm: linear-gradient(135deg, #f2a154 0%, #f0729e 100%);
+  --grad-cool: linear-gradient(135deg, #3fc3c8 0%, #5b8def 100%);
+  --grad-hero: linear-gradient(120deg, #7aa5f5 0%, #a68df5 50%, #f48cae 100%);
+
+  --text: #e7ebf3;
+  --text-muted: #a5adbd;
+  --text-soft: #737d90;
+
+  --border: #262f42;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.45);
+
+  --nav-bg: rgba(15, 20, 32, 0.72);
+  --nav-bg-scrolled: rgba(15, 20, 32, 0.92);
+  --code-bg: #0b0f19;
+  --code-text: #c9d3ea;
+  --chip-bg: #1b2233;
+  --footer-bg: #0b0f19;
+  --footer-text: #8b93a4;
+  --footer-heading: #f1f4fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth theme transition */
+body,
+.nav,
+.course-card,
+.perk,
+.step,
+.lang-pill,
+.about-home__panel,
+.whofor__card,
+.contact-form-wrap,
+.lang-card,
+.about-value {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root { color-scheme: light; }
+:root[data-theme='dark'] { color-scheme: dark; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  color: var(--text);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 84px 0;
+}
+
+.section--alt {
+  background: var(--surface-alt);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 52px;
+}
+
+.section-head .eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--grad-primary);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(91, 141, 239, 0.3);
+}
+
+.section-head h2 {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  margin-bottom: 14px;
+}
+
+.section-head p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--grad-primary);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(91, 141, 239, 0.35);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 10px 26px rgba(139, 110, 240, 0.4);
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary-soft);
+}
+
+.btn--ghost:hover {
+  background: var(--primary-soft);
+}
+
+.btn--light {
+  background: #fff;
+  color: var(--primary);
+}
+
+.btn--light:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================================
+   Reveal-on-scroll animation
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
